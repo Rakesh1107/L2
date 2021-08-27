@@ -7,14 +7,34 @@ public class SquareRoot {
         int sqrt = findSquareRoot(n);
         int sqrt2 = findSquareRoot2(n);
         System.out.println(sqrt);
+        System.out.println(sqrt2);
     }
 
-    //
+    // O(log n)
     private static int findSquareRoot2(int n) {
-        return 0;
+        if (n == 0 || n == 1) {
+            return n;
+        }
+
+        int start = 0, end = n, ans = 0;
+        while (start <= end) {
+            int mid = (start+end)/2;
+            if (mid*mid == n) {
+                return mid;
+            }
+            if (mid*mid < n) {
+                start = mid + 1;
+                ans = mid;
+            }
+            else {
+                end = mid - 1;
+            }
+
+        }
+        return ans;
     }
 
-    // Floor Square root
+    // Floor Square root - O(n)
     private static int findSquareRoot(int n) {
         if (n == 0 || n == 1) {
             return n;
