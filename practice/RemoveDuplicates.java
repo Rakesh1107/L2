@@ -5,7 +5,6 @@ import java.util.Arrays;
 public class RemoveDuplicates {
     public static void main(String[] args) {
         int[] array = {1, 1, 2, 3, 3, 4, 5, 6, 4};
-
         int size = removeDuplicates(array);
 
         for (int i = 0; i < size; i++) {
