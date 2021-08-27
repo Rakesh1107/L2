@@ -1,5 +1,7 @@
 package practice;
 
+import java.util.Arrays;
+
 public class BinarySearch {
     public static void main(String[] args) {
         int[] array = {2, 5, 1, 9, 6, 3, 10};
@@ -10,20 +12,21 @@ public class BinarySearch {
         return binarySearch(array, 0, array.length-1, a);
     }
 
-    private static int binarySearch(int[] array, int l, int r, int a) {
-        if (r >= l) {
-            int mid = (l+r)/2;
+    private static int binarySearch(int[] arr, int l, int r, int a) {
+        Arrays.sort(arr);
 
-            if (array[mid] == a) {
+        if (r >= l) {
+            int mid = l + (r - l) / 2;
+
+            if (arr[mid] == a)
                 return mid;
-            }
-            if (array[mid] > a) {
-                return binarySearch(array, l, mid-1, a);
-            }
-            else if (array[mid] < a) {
-                return binarySearch(array, mid+1, r, a);
-            }
+
+            if (arr[mid] > a)
+                return binarySearch(arr, l, mid - 1, a);
+
+            return binarySearch(arr, mid + 1, r, a);
         }
+
         return -1;
     }
 }
