@@ -8,7 +8,6 @@ public class Fibonacci {
             System.out.print(fibonacci(i) + " ");
         }
         System.out.println();
-
     }
 
     private static int fibonacci(int n) {
